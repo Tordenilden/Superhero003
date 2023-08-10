@@ -41,11 +41,13 @@ namespace Superhero003.Repository.Entities
             //return hero;
         }
 
-        public void DeleteHero(int id)
+        public async Task<bool> DeleteHero(int id)
         {
-            var hero = context.Hero?.FirstOrDefault(h => h.Id == id);
+            var hero = await context.Hero.FirstOrDefaultAsync(h => h.Id == id);
+            if (hero == null) return false;
             context.Hero?.Remove(hero);
             context.SaveChanges();
+            return true ;
         }
     }
 }

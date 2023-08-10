@@ -13,7 +13,7 @@ namespace Superhero003.Repository.Interfaces
         public Task<Hero> GetById(int id);
         public Task<Hero> GetByName(string name);
         public void CreateHero(Hero hero);
-        public void DeleteHero(int id); // PK
+        public Task<bool> DeleteHero(int id); // PK
         //public void UpdateHero(Hero hero);
     }
 }
