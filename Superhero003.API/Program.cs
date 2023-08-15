@@ -15,6 +15,7 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 // our DI 
 // Addscoped is used to the individuel user
 builder.Services.AddScoped<IHeroRepository, HeroRepository>();
+builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 //builder.Services.AddTransient
 //builder.Services.AddSingleton
 builder.Services.AddEndpointsApiExplorer();

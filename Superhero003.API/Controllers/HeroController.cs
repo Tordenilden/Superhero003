@@ -8,6 +8,7 @@ namespace Superhero003.API.Controllers
     [ApiController]
     public class HeroController : IHeroRepository
     {
+
         public IHeroRepository heroRepository { get; set; }
         public HeroController(IHeroRepository temp)
         {
@@ -38,10 +39,16 @@ namespace Superhero003.API.Controllers
             heroRepository.CreateHero(hero);
         }
 
-        [HttpDelete]
-        public void DeleteHero(int id)
+        //[HttpDelete]
+        //public Task<ActionResult<bool>> DeleteHero(int id)
+        //{
+        //    heroRepository.DeleteHero(id);
+        //    return OkResult(true);
+        //}
+
+        Task<bool> IHeroRepository.DeleteHero(int id)
         {
-            heroRepository.DeleteHero(id);
+            throw new NotImplementedException();
         }
     }
 }

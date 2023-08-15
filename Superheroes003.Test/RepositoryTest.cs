@@ -156,8 +156,7 @@ namespace Superheroes003.Test
         {
             HeroRepository hero = new HeroRepository(context);
             bool result = await hero.DeleteHero(5555);
-            Assert.True(!result);
-            
+            Assert.True(!result);          
         }
     }
 }
