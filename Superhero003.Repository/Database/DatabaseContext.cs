@@ -12,5 +12,6 @@ public class DatabaseContext : DbContext
 
     // tables in DB
     public DbSet<Hero> Hero { get; set; }
+    public DbSet<Team> Team { get; set; }
 
 }
