@@ -47,15 +47,19 @@ namespace Superhero003.Repository.Entities
             // then safe the object
             Team team = new Team();
             team = context.Team.FirstOrDefault(x => x.Id == temp.Id);
-
-
             if(temp.Heroes != null)
             {
 
            
             team.Name = temp.Name; //string
             team.age = temp.age; //int
-            team.Heroes = temp.Heroes; // array
+                // here is all data passed.. I might want the ID, måle på 
+                // om der er en eller flere
+                if (temp.Heroes.Count == 1)
+                {
+                    team.Heroes[0].Id = temp.Heroes[0].Id;
+                }
+           //team.Heroes = temp.Heroes; // array
             await context.SaveChangesAsync();
             }
             // I want to create a new Hero in my team
@@ -99,5 +103,9 @@ namespace Superhero003.Repository.Entities
             catch (Exception ex) { throw ex; }
             return team;
         }
+
+        #region weird stuff
+
+        #endregion weird stuff
     }
 }

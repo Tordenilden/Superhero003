@@ -64,5 +64,14 @@ namespace Superhero003.API.Controllers
         public void Delete(int id)
         {
         }
+
+
+        #region weird stuff
+        [HttpGet("first")]
+        public string Get(List<ISome> first)
+        {
+            return "value";
+        }
+        #endregion weird stuff
     }
 }
