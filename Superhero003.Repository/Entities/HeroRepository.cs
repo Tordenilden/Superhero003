@@ -53,5 +53,23 @@ namespace Superhero003.Repository.Entities
             context.SaveChanges();
             return true ;
         }
+
+        public async Task<Hero> UpdateHero(Hero hero)
+        {
+            try
+            {
+                if (hero.Id == null)
+                    return null;
+
+                var heroToUpdate = await context.Hero.FirstOrDefaultAsync(h=>h.Id == hero.Id);
+                heroToUpdate.Name = "Booo";
+                await context.SaveChangesAsync();
+                return heroToUpdate;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

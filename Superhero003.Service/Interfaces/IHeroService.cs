@@ -12,5 +12,6 @@ namespace Superhero003.Service.Interfaces
         public Task<List<Hero>> GetAll(); // signature
         public void CreateHero(Hero hero);
         public Task<List<Hero>> GetAllDTO();
+        public Task<Hero> UpdateHero(Hero hero);
     }
 }

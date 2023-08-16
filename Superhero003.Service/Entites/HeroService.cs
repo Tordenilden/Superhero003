@@ -55,5 +55,10 @@ namespace Superhero003.Service.Entities
             List<Hero> temp = heroList.Where(hero => hero.Id >= 1 && hero.Id <=3).ToList();
             return temp;
         }
+
+        public Task<Hero> UpdateHero(Hero hero)
+        {
+            return heroRepository.UpdateHero(hero);
+        }
     }
 }

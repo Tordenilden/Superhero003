@@ -56,5 +56,11 @@ namespace Superhero003.API.Controllers
         {
             throw new NotImplementedException();
         }
+
+        [HttpPut()]
+        public Task<Hero> UpdateHero(Hero hero)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

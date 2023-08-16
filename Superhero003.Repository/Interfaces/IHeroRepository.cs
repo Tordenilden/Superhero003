@@ -15,6 +15,6 @@ namespace Superhero003.Repository.Interfaces
         public void CreateHero(Hero hero);
         public Task<bool> DeleteHero(int id); // PK
         public Task<List<Hero>> GetAllDTO();
-        //public void UpdateHero(Hero hero);
+        public Task<Hero> UpdateHero(Hero hero);
     }
 }

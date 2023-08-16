@@ -45,6 +45,11 @@ namespace Superhero003.API.Controllers
             heroServie.CreateHero(hero);
         }
 
+        [HttpPut()]
+        public Task<Hero> UpdateHero(Hero hero)
+        {
+            return heroServie.UpdateHero(hero);
+        }
         //[HttpDelete]
         //public Task<ActionResult<bool>> DeleteHero(int id)
         //{
