@@ -1,42 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Superhero003.Repository.Interfaces;
 using Superhero003.Repository.Models;
+using Superhero003.Service.Interfaces;
 
 namespace Superhero003.API.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class HeroController : IHeroRepository
+    public class HeroController : ControllerBase
     {
 
-        public IHeroRepository heroRepository { get; set; }
-        public HeroController(IHeroRepository temp)
+        public IHeroService heroServie { get; set; }
+        public HeroController(IHeroService temp)
         {
-            this.heroRepository = temp;
+            this.heroServie = temp;
         }
 
         [HttpGet]
         public Task<List<Hero>> GetAll()
         {
-            return heroRepository.GetAll();
+            return heroServie.GetAll();
+        }
+        [HttpGet("GetThe3First")]
+        public Task<List<Hero>> GetAllDTO()
+        {
+            return heroServie.GetAllDTO();
         }
 
-        [HttpGet("{id}")]
-        public Task<Hero> GetById(int id)
-        {
-            return this.heroRepository.GetById(id);
-        }
+        //[HttpGet("{id}")]
+        //public Task<Hero> GetById(int id)
+        //{
+        //    return this.heroServie.GetById(id);
+        //}
 
-        [HttpGet("bandit")]
-        public Task<Hero> GetByName(string name)
-        {
-            return heroRepository.GetByName(name);
-        }
+        //[HttpGet("bandit")]
+        //public Task<Hero> GetByName(string name)
+        //{
+        //    return heroServie.GetByName(name);
+        //}
 
         [HttpPost]
         public void CreateHero(Hero hero)
         {
-            heroRepository.CreateHero(hero);
+            heroServie.CreateHero(hero);
         }
 
         //[HttpDelete]
@@ -46,9 +52,13 @@ namespace Superhero003.API.Controllers
         //    return OkResult(true);
         //}
 
-        Task<bool> IHeroRepository.DeleteHero(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //Task<bool> IHeroRepository.DeleteHero(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
+
+
+
+

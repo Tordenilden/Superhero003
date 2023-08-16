@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Superhero003.Repository\Superhero003.Repository.csproj" />
+    <ProjectReference Include="..\Superhero003.Service\Superhero003.Service.csproj" />
   </ItemGroup>
 
 </Project>

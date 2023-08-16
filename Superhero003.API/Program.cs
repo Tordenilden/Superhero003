@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Superhero003.Repository.Database;
 using Superhero003.Repository.Entities;
 using Superhero003.Repository.Interfaces;
+using Superhero003.Service.Entities;
+using Superhero003.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 // Addscoped is used to the individuel user
 builder.Services.AddScoped<IHeroRepository, HeroRepository>();
 builder.Services.AddScoped<ITeamRepository, TeamRepository>();
+
+// If I see a IClassName then I get ClassName object
+builder.Services.AddScoped<IHeroService, HeroService>();
+
 //builder.Services.AddTransient
 //builder.Services.AddSingleton
 builder.Services.AddEndpointsApiExplorer();

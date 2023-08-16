@@ -22,6 +22,10 @@ namespace Superhero003.Repository.Entities
             return await context.Hero.ToListAsync();
         }
 
+        public async Task<List<Hero>> GetAllDTO()
+        {
+            return await context.Hero.Where((h) => h.Id >= 1 && h.Id <= 3).ToListAsync();
+        }
         public async Task<Hero> GetById(int id)
         {
             var hero = await context.Hero.FirstOrDefaultAsync(h => h.Id == id);
